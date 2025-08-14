@@ -1,19 +1,17 @@
 {
-  "name": "@repo/db",
+  "name": "ws-backend",
   "module": "index.ts",
   "type": "module",
   "private": true,
-  "exports": {
-    "./client": "./index.ts"
-  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@repo/db": "workspace:*"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "@prisma/client": "^6.14.0",
-    "prisma": "^6.14.0"
+    "@types/ws": "^8.18.1",
+    "ws": "^8.18.3"
   }
 }
