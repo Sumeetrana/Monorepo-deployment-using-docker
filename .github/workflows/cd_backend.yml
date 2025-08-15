@@ -22,3 +22,14 @@ jobs:
           file: ./docker/Dockerfile.backend
           push: true
           tags: sumeetsinh/todo-app-backend:${{ github.sha }}
+
+      - name: Deploy to SSH
+        uses: appleboy/scp-action@master
+        with:
+          host: 3.95.242.5
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            docker pull sumeetsinh/todo-app-backend:${{ github.sha }}
+            docker stop user-backend
+            git run --name user_backend -d -p 8080:8080 sumeetsinh/todo-app-backend:${{ github.sha }}
