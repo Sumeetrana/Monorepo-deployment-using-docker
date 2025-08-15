@@ -4,6 +4,10 @@ import { prismaClient } from "@repo/db/client"; // Importing the db client
 const app = express();
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Hello from the HTTP backend!");
+});
+
 app.get("/users", async (req, res) => {
   const users = await prismaClient.user.findMany();
   res.json(users);
