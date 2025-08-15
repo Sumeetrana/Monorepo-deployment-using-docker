@@ -32,4 +32,4 @@ jobs:
           script: |
             docker pull sumeetsinh/todo-app-backend:${{ github.sha }}
             docker stop user-backend
-            git run --name user_backend -d -p 8080:8080 sumeetsinh/todo-app-backend:${{ github.sha }}
+            docker run --name user_backend -d -p 8080:8080 sumeetsinh/todo-app-backend:${{ github.sha }}
