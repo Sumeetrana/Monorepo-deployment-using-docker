@@ -32,4 +32,5 @@ jobs:
           script: |
             sudo docker pull sumeetsinh/todo-app-backend:${{ github.sha }}
             sudo docker stop user_backend
+            sudo docker rm user_backend
             sudo docker run --name user_backend -d -p 8080:8080 sumeetsinh/todo-app-backend:${{ github.sha }}
